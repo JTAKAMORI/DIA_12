@@ -1,0 +1,130 @@
+.titulo-principal {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 20px 0;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(61, 57, 57, 0.7);
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #21298d, #e99905);
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+
+.slideshow-container {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(62, 94, 155, 0.6);
+}
+
+.slide {
+  display: none;
+  text-align: center; /* Adicionado para centralizar o conteúdo */
+}
+
+.slide img {
+  width: 40%;
+  height: auto;
+  border-radius: 12px;
+  margin: 0 auto; /* Centraliza horizontalmente */
+  display: block; /* Necessário para margin: auto funcionar */
+}
+
+
+.fade {
+  animation: fade 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.3s;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.dots-container {
+  text-align: center;
+  padding: 15px;
+  background: #111;
+  border-radius: 0 0 12px 12px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 6px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.4s;
+}
+
+.active, .dot:hover {
+  background-color: #fff;
+}
+
+.mensagem {
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 10px 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.btn-world-love {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #ff4081;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+
+.btn-world-love:hover {
+  background-color: #e03570;
+}
+
+
