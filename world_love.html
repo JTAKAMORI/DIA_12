@@ -1,68 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>World Love</title>
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #ff4e50, #f9d423);
-    font-family: Arial, sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Love</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #ff4e50, #f9d423);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
 
-  .globo-container {
-    position: relative;
-    width: 350px;
-    height: 350px;
-    perspective: 1000px;
-    overflow: hidden;
-    border-radius: 50%;
-    box-shadow: 0 0 45px 8px rgba(255, 105, 180, 0.9);
-  }
+    .globo-container {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      perspective: 1000px;
+      overflow: hidden;
+      border-radius: 50%;
+      box-shadow: 0 0 45px 8px rgba(255, 105, 180, 0.9);
+      z-index: 2;
+    }
 
-  .globo {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/BlankMap-World6-Equirectangular.svg/1024px-BlankMap-World6-Equirectangular.svg.png') no-repeat center/cover;
-    animation: girar 12s linear infinite;
-    position: relative;
-    z-index: 1;
-  }
+    .globo {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/BlankMap-World6-Equirectangular.svg/1024px-BlankMap-World6-Equirectangular.svg.png') no-repeat center/cover;
+      animation: girar 12s linear infinite;
+      position: relative;
+      z-index: 1;
+    }
 
-  .texto-deslizante {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    white-space: nowrap;
-    transform: translateY(-50%);
-    font-size: 28px;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff1493;
-    animation: deslizarTexto 15s linear infinite;
-    pointer-events: none;
-    user-select: none;
-    z-index: 2;
-    font-family: 'Arial Black', Arial, sans-serif;
-  }
+    .texto-deslizante {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      white-space: nowrap;
+      transform: translateY(-50%);
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 5px #ff69b4, 0 0 10px #ff1493;
+      animation: deslizarTexto 15s linear infinite;
+      pointer-events: none;
+      user-select: none;
+      z-index: 3;
+      font-family: 'Arial Black', Arial, sans-serif;
+    }
 
-  @keyframes girar {
-    from { transform: rotateY(0deg); }
-    to { transform: rotateY(360deg); }
-  }
+    @keyframes girar {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
 
-  @keyframes deslizarTexto {
-    0% { transform: translateX(100%) translateY(-50%); }
-    100% { transform: translateX(-100%) translateY(-50%); }
-  }
-</style>
+    @keyframes deslizarTexto {
+      0% { transform: translateX(100%) translateY(-50%); }
+      100% { transform: translateX(-100%) translateY(-50%); }
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff1493;
+      font-size: 24px;
+      animation: fall linear infinite;
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -72,6 +95,24 @@
       Eu te amo ❤️ Eu te amo ❤️ Eu te amo ❤️ Eu te amo ❤️ Eu te amo ❤️ Eu te amo ❤️
     </div>
   </div>
+
+  <script>
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('heart');
+      coracao.textContent = '❤️';
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.fontSize = (Math.random() * 20 + 20) + 'px';
+      coracao.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      document.body.appendChild(coracao);
+
+      setTimeout(() => {
+        coracao.remove();
+      }, 7000);
+    }
+
+    setInterval(criarCoracao, 200);
+  </script>
 
 </body>
 </html>
